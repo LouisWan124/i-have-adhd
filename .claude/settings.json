@@ -1,12 +1,4 @@
 {
-  "extraKnownMarketplaces": {
-    "i-have-adhd": {
-      "source": { "source": "github", "repo": "LouisWan124/i-have-adhd" }
-    }
-  },
-  "enabledPlugins": {
-    "i-have-adhd@i-have-adhd": true
-  },
   "hooks": {
     "SessionStart": [
       {
