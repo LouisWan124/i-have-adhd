@@ -1,0 +1,24 @@
+{
+  "extraKnownMarketplaces": {
+    "i-have-adhd": {
+      "source": { "source": "github", "repo": "LouisWan124/i-have-adhd" }
+    }
+  },
+  "enabledPlugins": {
+    "i-have-adhd@i-have-adhd": true
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const fs=require('node:fs'),p=require('node:path');try{const s=fs.readFileSync(p.join(process.env.CLAUDE_PROJECT_DIR||'.','skills','i-have-adhd','SKILL.md'),'utf8').replace(/^---[^\\S\\r\\n]*\\r?\\n[\\s\\S]*?\\r?\\n---[^\\S\\r\\n]*(?:\\r?\\n|$)/,'').trim();process.stdout.write('ADHD MODE ACTIVE (always-on for this project). The ruleset below applies to every response. \\\"stop adhd mode\\\" turns it off for this session.\\n\\n'+s+'\\n')}catch{}\"",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
